@@ -1,0 +1,47 @@
+<div id="mainDiv">
+
+  <div class="menu-container">
+    <app-menu (recievedMap)="onReceivedMap($event)">
+    </app-menu>
+  </div>
+  <div class="score-container-endGame-button-container">
+    <div class="score-container" #score>
+      <app-score-bar>
+      </app-score-bar>
+    </div>
+    <div class="end-game-button">
+      <button #EndGame mat-flat-button (click)="this.endGame()" id="EndGame"> <span> End Game</span></button>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div class="map">
+      <ng-container *ngFor="let tile of this.gameService.game.map.tiles | keyvalue">
+        <img (click)="place(tile.key)" (mouseover)="showPossibleResult(tile.key)" (mouseout)="resetShadowBlock()"
+             class='tile'
+             [attr.data-x]=tile.key[1]
+             [attr.data-y]=tile.key[3]
+             src={{tile.value.getAssetPath()}}/>
+      </ng-container>
+    </div>
+    <div class="mapPreview">
+      <ng-container *ngFor="let tile of this.resultMap | keyvalue">
+        <img
+          class='tilePreview'
+          [attr.data-x]=tile.key[1]
+          [attr.data-y]=tile.key[3]
+          src={{tile.value}}/>
+      </ng-container>
+    </div>
+
+  </div>
+  <div class="blocks-and-game-buttons-container" >
+    <div class = "blocks">
+      <app-block-bar></app-block-bar>
+    </div>
+    <div class="undo-redo-container" >
+      <app-undo-redo> </app-undo-redo>
+    </div>
+  </div>
+</div>
+

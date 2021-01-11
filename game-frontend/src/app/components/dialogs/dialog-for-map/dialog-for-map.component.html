@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Hey there</h1>
+<div mat-dialog-content>
+  <p>To watch replay you must first pick a Map to play</p>
+  <mat-label>Pick a Map: {{selectedMap}}</mat-label>
+  <mat-form-field appearance="fill">
+    <mat-label>Map Name</mat-label>
+    <mat-select [(ngModel)]="selectedMap" name="mapName">
+      <mat-option *ngFor="let name of MapNames" [value]="name" >
+        {{name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="selectedMap" cdkFocusInitial>Done</button>
+</div>

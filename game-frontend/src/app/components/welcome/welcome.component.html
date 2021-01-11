@@ -1,0 +1,58 @@
+<div class="container-image">
+  <mat-accordion class="accordion-panel-container">
+    <mat-expansion-panel hideToggle class="map-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-family: 'Montserrat', sans-serif;">
+          Start a game
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="options-map-container">
+        <button mat-stroked-button style="font-family: 'Montserrat', sans-serif;"
+                (click)="randomMap()">Random Map
+        </button>
+
+        <mat-expansion-panel class="expansion-panel-loaded-maps" hideToggle [disabled]="isDisabled"
+                             (opened)="this.show">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="header-load-map" style="font-family: 'Montserrat', sans-serif;">
+              Load a map
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ng-container *ngIf="this.show">
+            <div class="available-maps-as-buttons-container">
+              <button *ngFor="let maps of this.availableMaps" mat-stroked-button
+                      (click)="loadedMap(maps)">{{maps}}</button>
+            </div>
+          </ng-container>
+        </mat-expansion-panel>
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="watch-replay-panel" [disabled]="isDisabled" hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title style="font-family: 'Montserrat', sans-serif;">
+          Watch a replay
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-form-field class="form-player-name-replay">
+        <input matInput #playerName (keypress)="replayPlayer($event)" style="font-family: 'Montserrat', sans-serif;"
+               placeholder="Enter a player name">
+      </mat-form-field>
+      <ng-container>
+        <div class="player-replays-container" *ngIf="this.availableReplays.length !== 0; else noAvailableReplay">
+          <button mat-stroked-button *ngFor="let mapName of this.availableReplays" (click)="chooseReplay(mapName)">
+            Map : {{mapName}}
+          </button>
+        </div>
+        <ng-template #noAvailableReplay>
+          No replay for this player
+        </ng-template>
+      </ng-container>
+
+    </mat-expansion-panel>
+
+  </mat-accordion>
+
+</div>
+

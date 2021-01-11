@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Hey there</h1>
+<div mat-dialog-content>
+  <p>To watch replay you must first pick a player name:</p>
+  <mat-form-field>
+    <mat-label>Pick a name</mat-label>
+    <input matInput [(ngModel)]="this.gameService.game.playerName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="this.gameService.game.playerName" cdkFocusInitial>Done</button>
+</div>

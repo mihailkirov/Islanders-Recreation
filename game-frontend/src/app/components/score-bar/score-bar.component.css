@@ -1,0 +1,45 @@
+.flex-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.single-chart {
+  width: 13%;
+  justify-content: space-around ;
+
+}
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 80%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: whitesmoke;
+  stroke-width: 3.4;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+    stroke: indianred;
+  }
+}
+
+.percentage {
+  #fill: #666666;
+  fill: black;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.4em;
+  text-anchor: middle;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}

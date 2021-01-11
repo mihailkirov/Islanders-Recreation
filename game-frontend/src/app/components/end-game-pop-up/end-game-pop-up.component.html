@@ -1,0 +1,33 @@
+<div id="mainDiv"
+     style="display: flex; justify-content: center; align-items: center; flex-direction: column; width: 100%; padding-top: 20px;">
+  <mat-card>
+    <mat-card-header>
+      <div style="position: absolute; right: 15px; top: 20px;">
+        <button mat-stroked-button (click)="close()" title="close pop-up">
+          <img src="assets/clear-black-48dp.svg">
+        </button>
+      </div>
+      <mat-card-title><span style="font-size: 30px">Well done !</span></mat-card-title>
+      <mat-card-subtitle>You've finished the game</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+      <span> Your current score on {{this.gameService.game.map.name}}
+        map is {{this.gameService.game.currentScore}} </span>
+
+    </mat-card-content>
+
+    <mat-card-actions style="display: flex; justify-content: center; align-items: center; width: 100%;">
+
+      <button mat-stroked-button (click)="this.showTopFive()">Get Top 5 scores</button>
+      <button mat-stroked-button (click)="this.saveReplay()">Save Replay of your playing session</button>
+
+    </mat-card-actions>
+
+  </mat-card>
+
+
+</div>
+
+

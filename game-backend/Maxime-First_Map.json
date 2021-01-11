@@ -1,0 +1,70 @@
+{
+  "moves" : [ {
+    "type" : "game.models.moves.PlaceMove",
+    "coord" : {
+      "x" : 1,
+      "y" : 10
+    },
+    "tile" : {
+      "type" : "game.models.tiles.Water",
+      "block" : null
+    },
+    "map" : {
+      "name" : "",
+      "width" : 10,
+      "tiles" : { },
+      "fiveBestRes" : { }
+    }
+  }, {
+    "type" : "game.models.moves.PlaceMove",
+    "coord" : {
+      "x" : 5,
+      "y" : 15
+    },
+    "tile" : {
+      "type" : "game.models.tiles.Grass",
+      "block" : null
+    },
+    "map" : {
+      "name" : "",
+      "width" : 10,
+      "tiles" : { },
+      "fiveBestRes" : { }
+    }
+  } ]
+}
+{
+  "moves" : [ {
+    "type" : "game.models.moves.PlaceMove",
+    "coord" : {
+      "x" : 1,
+      "y" : 10
+    },
+    "tile" : {
+      "type" : "game.models.tiles.Water",
+      "block" : null
+    },
+    "map" : {
+      "name" : "",
+      "width" : 10,
+      "tiles" : { },
+      "fiveBestRes" : { }
+    }
+  }, {
+    "type" : "game.models.moves.PlaceMove",
+    "coord" : {
+      "x" : 5,
+      "y" : 15
+    },
+    "tile" : {
+      "type" : "game.models.tiles.Grass",
+      "block" : null
+    },
+    "map" : {
+      "name" : "",
+      "width" : 10,
+      "tiles" : { },
+      "fiveBestRes" : { }
+    }
+  } ]
+}

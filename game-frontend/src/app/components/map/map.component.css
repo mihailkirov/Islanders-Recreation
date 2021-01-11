@@ -1,0 +1,116 @@
+div {
+  --size-cell: 58px;
+  --nb-cell: 10;
+  --z-rotate: 45deg;
+  --x-rotate: 60deg;
+}
+
+#mainDiv {
+  background-image: url("src/assets/back3.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.menu-container {
+  width: 100vw;
+}
+
+.score-container-endGame-button-container {
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#EndGame {
+  background-color: #fb1301;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  width: 200px;
+  height: 5vh;
+  margin: 5px;
+  right: 15%;
+}
+
+#EndGame:hover {
+  background: #555;
+}
+.score-container {
+  width: 100vw;
+  left: 0;
+}
+.map-container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.blocks {
+  position: fixed;
+  left: 5%;
+  bottom: 10%;
+}
+.undo-redo-container {
+  position: fixed;
+  right: 5%;
+  bottom: 10%;
+}
+.map {
+  line-height: 0;
+  position: absolute;
+  top: 70px;
+  left: 40pc;
+  transform: translateY(90px) scale(1.65) rotateX(var(--x-rotate)) rotateZ(var(--z-rotate));
+  margin: auto;
+  width: calc(var(--size-cell) * var(--nb-cell));
+  z-index: 1000;
+}
+.mapPreview {
+  pointer-events: none;
+  line-height: 0;
+  position: absolute;
+  top: 70px;
+  left: 40pc;
+  transform: translateY(90px) scale(1.65) rotateX(var(--x-rotate)) rotateZ(var(--z-rotate));
+  margin: auto;
+  width: calc(var(--size-cell) * var(--nb-cell));
+  z-index: 1000;
+}
+
+.tile {
+  user-select: none;
+  margin: 0 -21px;
+  animation: showTile 3s;
+  transform: rotateZ(-45deg) rotateY(-60deg) scale(1.6);
+  clip-path: polygon(50px 0, 0 25px, 0 32px, 50px 58px, 100px 33px, 100px 25px, 50px 0);
+}
+.tile:hover{
+  opacity:0.8
+}
+.tilePreview {
+  height: 100px;
+  width: 100px;
+  user-select: none;
+  margin: -21px -21px;
+  animation: showTile 3s;
+  transform: rotateZ(-45deg) rotateY(-60deg)scale(0.6);
+}
+
+.blocks-and-game-buttons-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+
+

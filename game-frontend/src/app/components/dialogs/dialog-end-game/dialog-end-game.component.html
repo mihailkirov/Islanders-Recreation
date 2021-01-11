@@ -1,0 +1,8 @@
+<div mat-dialog-content>
+  <p>You're quitting the game, chose and action</p>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button (click)="quit(true)">Quit & Save</button>
+    <button mat-button (click)="quit(false)">Quit Without Saving</button>
+  </div>
+</div>

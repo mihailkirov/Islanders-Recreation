@@ -1,0 +1,60 @@
+<p>
+  <mat-toolbar class="toolbar" style="justify-content: center; align-content: center;">
+      <span>You are watching {{this.gameService.game.playerName}}'s
+        replay on {{this.gameService.game.map.name}}</span>
+  </mat-toolbar>
+</p>
+
+<div id="mainDiv">
+
+  <div class="score-container">
+    <div class="flex-wrapper">
+      <div class="single-chart" style="padding-top: 20px;">
+        <svg viewBox="0 0 36 36" class="circular-chart">
+          <path class="circle-bg"
+                d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path class="circle"
+                [attr.stroke-dasharray]="this.strokeDasharray"
+                [attr.stroke]="this.color"
+                d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text x="18" y="20.35" class="percentage">{{currentReplayScore}} / {{this.nextReplayScoreToReach}}</text>
+        </svg>
+      </div>
+
+    </div>
+
+    <div class="map-container">
+      <div class="map">
+        <ng-container *ngFor="let tile of this.gameService.game.map.tiles | keyvalue">
+          <img
+            class='tile'
+            [attr.data-x]=tile.key[1]
+            [attr.data-y]=tile.key[3]
+            src={{tile.value.getAssetPath()}}
+          />
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="pause-play-button">
+      <button mat-stroked-button #PauseButton (click)="pause()" title="Pause replay animation">
+        <img #pausePlay style="image-resolution: from-image;" src="assets/pause_circle-black-48dp.svg">
+      </button>
+      <button mat-stroked-button #Reload (click)="reload()" title="Restart replay animation">
+        <img style="image-resolution: from-image;" src="assets/replay-black-48dp.svg">
+      </button>
+      <button mat-stroked-button #returnMapButton (click)="goBack()" title="Go back to play">
+        <img style="image-resolution:from-image;" src="assets/keyboard_return-black-48dp.svg">
+      </button>
+    </div>
+
+
+  </div>
+
+</div>

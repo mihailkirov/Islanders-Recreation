@@ -1,0 +1,45 @@
+<!-- First Menu type no overlay-->
+<mat-toolbar class="mat-toolbar" >
+  <button mat-icon-button
+          [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div style="padding: 10px;display: flex; justify-content: center; align-items: center; width: 100%; ">
+    <span> Welcome {{this.gameService.game.playerName}} to Islander</span>
+  </div>
+
+</mat-toolbar>
+
+<mat-menu #menu="matMenu" style="padding: 5px;">
+
+  <div style="display: flex; padding: 0 8px;"><input (click)="$event.stopPropagation()" (keyup.enter)="changePlayerName(NameEntry.value)" type="text"
+              maxlength="20" placeholder="Change your name" #NameEntry/>
+    <button mat-stroked-button style="align-content: center;justify-content: center;display: flex;" (click)="changePlayerName(NameEntry.value)" #changeNameButton>Change</button>
+  </div>
+  <button mat-menu-item (click)="this.newRandomMap()">New Random Map</button>
+  <button mat-menu-item [matMenuTriggerFor]="pickAMap" >Choose Map</button>
+  <button mat-menu-item (click)="showLastReplay()">Show Replay of last game</button>
+<!--  <button mat-menu-item (click)="this.gameService.postReplay()">Save replay THIS BUTTON WILL BE REMOVED</button>-->
+  <button mat-menu-item (click)="this.showTopFive()">Show Top Five Scores on this map</button>
+
+</mat-menu>
+<mat-menu class="side-menu" #pickAMap="matMenu">
+
+  <mat-form-field appearance="fill" (click)="$event.stopPropagation()">
+    <mat-label>Map Name</mat-label>
+    <mat-select [(ngModel)]="this.gameService.game.map.name"  name="mapName" >
+      <mat-option *ngFor="let name of MapNames" [value]="name" (click)="chooseMap(name)" >
+        {{name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!--  <ng-container *ngFor="let name of MapNames">-->
+<!--    <button  mat-menu-item (click)="chooseMap(name)">{{name}}</button>-->
+<!--  </ng-container>-->
+</mat-menu>
+
+
+
+

@@ -1,0 +1,14 @@
+<div class="bar">
+
+  <ng-container *ngFor="let block of this.gameService.availableBlocks | keyvalue">
+    <div class='border'>
+      <img (click)="selectBlock(block.value[0])"
+      class='tile'
+      [attr.data-y]=0
+    src={{block.value[0].getAssetPath()}}
+    />
+    </div>
+      <span class="top-right">{{block.value[1]}}</span>
+  </ng-container>
+
+</div>
